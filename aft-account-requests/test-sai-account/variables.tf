@@ -33,6 +33,11 @@ variable "control_tower_parameters" {
   type        = map(string)
 }
 
+variable "account_customizations_name" {
+  description = "Customizations name for the account"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to apply to the new account"
   type        = map(string)
