@@ -27,3 +27,21 @@ variable "ct_home_region" {
   description = "The home region of Control Tower"
   type        = string
 }
+
+variable "account_request" {
+  description = "Account request object for new account creation"
+  type = object({
+    email      = string
+    name       = string
+    sso_email  = string
+    sso_first  = string
+    sso_last   = string
+    ou         = string
+  })
+}
+
+variable "tags" {
+  description = "Tags to apply to the new account"
+  type        = map(string)
+  default     = {}
+}
