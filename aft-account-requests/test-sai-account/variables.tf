@@ -1,43 +1,72 @@
 variable "tf_backend_secondary_region" {
-  description = "The secondary region used for the TF backend"
+  description = "Secondary region for Terraform backend"
   type        = string
 }
 
 variable "log_archive_account_id" {
-  description = "Account ID for the log archive account"
+  description = "Log archive account ID"
   type        = string
 }
 
 variable "audit_account_id" {
-  description = "Account ID for the audit account"
+  description = "Audit account ID"
   type        = string
 }
 
 variable "aft_management_account_id" {
-  description = "Account ID for the AFT management account"
+  description = "AFT management account ID"
   type        = string
 }
 
 variable "ct_management_account_id" {
-  description = "Account ID for the Control Tower management account"
+  description = "Control Tower management account ID"
   type        = string
 }
 
 variable "ct_home_region" {
-  description = "The home region of Control Tower"
+  description = "Control Tower home region"
   type        = string
 }
 
-variable "account_request" {
-  description = "Account request object for new account creation"
-  type = object({
-    email      = string
-    name       = string
-    sso_email  = string
-    sso_first  = string
-    sso_last   = string
-    ou         = string
-  })
+variable "account_email" {
+  description = "Email address for the new AWS account"
+  type        = string
+}
+
+variable "account_name" {
+  description = "Name of the new AWS account"
+  type        = string
+}
+
+variable "sso_user_email" {
+  description = "SSO user email address"
+  type        = string
+}
+
+variable "sso_user_first_name" {
+  description = "First name of the SSO user"
+  type        = string
+}
+
+variable "sso_user_last_name" {
+  description = "Last name of the SSO user"
+  type        = string
+}
+
+variable "managed_organizational_unit" {
+  description = "Organizational Unit for the new account"
+  type        = string
+}
+
+variable "account_customizations_name" {
+  description = "Account customization profile name"
+  type        = string
+}
+
+variable "control_tower_parameters" {
+  description = "Additional Control Tower parameters"
+  type        = map(string)
+  default     = {}
 }
 
 variable "tags" {
