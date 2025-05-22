@@ -4,15 +4,21 @@ log_archive_account_id      = "611035461339"
 audit_account_id            = "937025013298"
 aft_management_account_id   = "611035461339"
 ct_management_account_id    = "285305987920"
-ct_home_region            = "us-east-1"
+ct_home_region             = "us-east-1"
 
-account_request = {
-  email     = "test-sai1234@yop.mail"
-  name      = "test-sai"
-  sso_email = "test-sai12345@yop.mail"
-  sso_first = "testing"
-  sso_last  = "sai"
-  ou        = "sandbox"
+account_email               = "test-sai1234@yop.mail"
+account_name                = "test-sai"
+sso_user_email             = "test-sai12345@yop.mail"
+sso_user_first_name        = "testing"
+sso_user_last_name         = "sai"
+managed_organizational_unit = "sandbox"
+account_customizations_name = "admin"
+
+control_tower_parameters = {
+  "SSOUserEmail"              = "test-sai12345@yop.mail"
+  "SSOUserFirstName"          = "testing"
+  "SSOUserLastName"           = "sai"
+  "ManagedOrganizationalUnit" = "sandbox"
 }
 
 tags = {
