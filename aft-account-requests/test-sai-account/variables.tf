@@ -1,45 +1,29 @@
-variable "account_name" {
-  description = "The name of the new AWS account"
+variable "tf_backend_secondary_region" {
+  description = "The secondary region used for the TF backend"
   type        = string
 }
 
-variable "account_email" {
-  description = "The email address for the new AWS account"
+variable "log_archive_account_id" {
+  description = "Account ID for the log archive account"
   type        = string
 }
 
-variable "sso_email" {
-  description = "SSO email address for the new account user"
+variable "audit_account_id" {
+  description = "Account ID for the audit account"
   type        = string
 }
 
-variable "sso_first_name" {
-  description = "First name of the SSO user"
+variable "aft_management_account_id" {
+  description = "Account ID for the AFT management account"
   type        = string
 }
 
-variable "sso_last_name" {
-  description = "Last name of the SSO user"
+variable "ct_management_account_id" {
+  description = "Account ID for the Control Tower management account"
   type        = string
 }
 
-variable "managed_ou" {
-  description = "The organizational unit for the new account"
+variable "ct_home_region" {
+  description = "The home region of Control Tower"
   type        = string
-}
-
-variable "control_tower_parameters" {
-  description = "Map of Control Tower parameters"
-  type        = map(string)
-}
-
-variable "account_customizations_name" {
-  description = "Customizations name for the account"
-  type        = string
-}
-
-variable "tags" {
-  description = "Tags to apply to the new account"
-  type        = map(string)
-  default     = {}
 }
