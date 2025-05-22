@@ -28,11 +28,6 @@ variable "managed_ou" {
   type        = string
 }
 
-variable "account_customizations_name" {
-  description = "Customization name applied to the account"
-  type        = string
-}
-
 variable "control_tower_parameters" {
   description = "Map of Control Tower parameters"
   type        = map(string)
