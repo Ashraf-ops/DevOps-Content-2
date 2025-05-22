@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "aft_account_request" {
-  source = "git::https://github.com/aws-ia/terraform-aws-control_tower_account_factory.git//examples/aft-account-request?ref=main"
+ source = "git::https://github.com/aws-ia/terraform-aws-control_tower_account_factory.git?ref=main"
 
   account_name                = var.account_name
   account_email               = var.account_email
