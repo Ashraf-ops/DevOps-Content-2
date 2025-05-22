@@ -23,7 +23,5 @@ module "aft_account_request" {
   sso_last_name               = var.sso_last_name
   managed_ou                  = var.managed_ou
   account_customizations_name = var.account_customizations_name
-
-  control_tower_parameters    = var.control_tower_parameters
   tags                        = var.tags
 }
