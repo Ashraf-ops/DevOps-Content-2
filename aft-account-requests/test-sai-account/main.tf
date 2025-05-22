@@ -9,7 +9,7 @@ module "aft_account_request" {
   ct_management_account_id    = var.ct_management_account_id
   ct_home_region              = var.ct_home_region
 
-  control_tower_parameters    = var.control_tower_parameters
-  account_customizations_name = var.account_customizations_name
-  tags                        = var.tags
+  account_request = var.account_request
+
+  tags = var.tags
 }
