@@ -1,13 +1,7 @@
 name: test-sai-pipeline
 
 on:
-  workflow_dispatch:      # manual trigger
-  push:
-    paths:
-      - 'aft-account-requests/**'
-  pull_request:
-    paths:
-      - 'aft-account-requests/**'
+  workflow_dispatch:      # manual trigger only
 
 jobs:
   terraform:
@@ -36,4 +30,18 @@ jobs:
         run: terraform init -backend=false
 
       - name: Terraform Format Check
-        run: terraform
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Plan
+        run: terraform plan
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1   # set your Control Tower home region here
+
+      - name: Terraform Apply
+        if: github.event_name == 'workflow_dispatch'   # only apply on manual runs!
+        run: terraform apply -auto-approve
