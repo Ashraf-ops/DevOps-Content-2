@@ -1,6 +1,7 @@
 name: Validate AFT Account Request
 
 on:
+  workflow_dispatch:  # ✅ enables manual run button
   push:
     paths:
       - 'aft-account-requests/**'
@@ -13,9 +14,14 @@ jobs:
     name: Validate AFT Terraform Config
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        folder:
+          - test-sai-account  # ✅ update if you have more folders
+
     defaults:
       run:
-        working-directory: ./aft-account-requests/test-sai-account
+        working-directory: ./aft-account-requests/${{ matrix.folder }}
 
     steps:
       - name: Checkout repository
@@ -26,11 +32,11 @@ jobs:
         with:
           terraform_version: 1.5.7
 
-      - name: Initialize Terraform
+      - name: Terraform Init
         run: terraform init -backend=false
 
-      - name: Validate Terraform
+      - name: Terraform Validate
         run: terraform validate
 
-      - name: Format Check
+      - name: Terraform Format Check
         run: terraform fmt -check -recursive
